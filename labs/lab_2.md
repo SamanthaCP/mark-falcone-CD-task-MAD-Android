@@ -1,6 +1,6 @@
 # Lab 1: Flashcard App
 
-## Goals
+## Goals 🎓
 
 - Create a new app project
 - Add different UI views on a screen
@@ -8,29 +8,32 @@
 - Understand how to debug crashes and log useful messages
 - Push project to Github
 
+:::info
 **Before you start the lab, it may be a good idea check out these two resources:**
+:::
+
 
 
 1. [Android Studio Starter Guide](https://courses.codepath.org/courses/mobile_app_design/pages/android/android_studio_intro.md)
 2. [The Skills Tab](https://courses.codepath.org/courses/mobile_app_design/unit/2#!skills) to get a quick overview of the new concepts introduced in this lab
 3. [Android Troubleshooting Guide](https://hackmd.io/s/r1KlxitOX) - Check here first if your emulator or Android Studio isn't working!
 
-## Introduction
+## Introduction 📱
 
 Refer to this video for an introduction to the concepts you'll encounter in this lab:
 
 <iframe width="640" height="316"  src="https://www.youtube.com/embed/fkWot7tcSIU?list=PLrT2tZ9JRrf47Ti_eQjzpZVHLE43kMgZX" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-- [Lab 1 Lecture Slides](https://speakerdeck.com/marusya82/mad-week-2-lab-1)
+- [**Lab 1 Lecture Slides**](https://speakerdeck.com/marusya82/mad-week-2-lab-1)
 
-## Challenge
+## 💪Challenge
 
 Each technical lab has a section of Required and Optional Tasks. Required Tasks MUST be completed as part of your submission, but if you finish those tasks early, feel free to explore the Optional Tasks.
 
 This week we will start building our Flashcard app. By the end of this lab you should have a basic Flashcard app that can:
 
-- display a question
-- respond to a user's tap to display the answer to the question
+- Display a question
+- Respond to a user's tap to display the answer to the question
 
 This is what the flashcard will look like at the end of this lab:
 
@@ -49,52 +52,67 @@ Great! This would be where the detailed walkthrough would be.
 ^^^
 
 
-### Required Tasks
-
-#### 1. Create New Project in Android Studio
-
+## Required Tasks
+<details>
+<summary style="font-size:1.25em; font-weight: 600">
+1. Create New Project in Android Studio
+</summary>
+<br>
+    
 **Concepts / Terminologies introduced** : [minSDK](https://courses.codepath.org/courses/mobile_app_design/pages/android/glossary/lab_1_glossary.md#heading-minsdk-version) , [Android's Activity](https://courses.codepath.org/courses/mobile_app_design/pages/android/glossary/lab_1_glossary.md#heading-activity)
 
 
-
-- Open Android Studio and create a new android project
-- Choose to create an 'Empty Activity'
+* Open Android Studio and create a new android project
+* Choose to create an 'Empty Activity'
 
   ![Select New Project | 500](https://i.imgur.com/TF2fjWr.png)
 
-- be sure to give your app a good name (it doesn't have to be Flashcard)!
-- change to "Java" instead of "Kotlin" as the coding language
+:::info
+Be sure to give your app a good name (it doesn't have to be Flashcard)!
+Change to "Java" instead of "Kotlin" as the coding language
+:::
   ![Configure your Project | 500](https://i.imgur.com/6WlDtQL.png)
 
-- once the project has been successfully created, run your app to make sure you can see the default ` Hello World! ` screen
-
-  Notice that when you created the project, Android Studio automatically generates a lot of files. You should see this on the left side navigation. (If you don't see the navigation bar, click Project -> and make sure "Android" is selected at the top left corner.) The two most important ones that we care about right now are `MainActivity.java` and `activity_main.xml`.
+- Once the project has been successfully created, run your app to make sure you can see the default ` Hello World! ` screen
+    
+:::warning
+Notice that when you created the project, Android Studio automatically generates a lot of files. You should see this on the left side navigation. (If you don't see the navigation bar, click Project -> and make sure "Android" is selected at the top left corner.) The two most important ones that we care about right now are `MainActivity.java` and `activity_main.xml`.
+:::
+  
 
   ![Navigation Bar | 300](https://i.imgur.com/qxWBOSV.png)
-
+:::info
   *Pro Tip: You can also use `Command+Shift+O` on Mac or `Control+Shift+N` on Windows to navigate to the file you want without using the navigation drawer. You can also use the target icon highlighted in the above screenshot on the navigation drawer to highlight the file you're currently on in the navigation drawer.*
+:::
+</details>
 
-
-#### 2. Add a view for the front side of the flashcard to display the question
+<details>
+<summary style="font-size:1.25em; font-weight: 600">
+2. Add a view for the front side of the flashcard to display the question
+</summary>
 
 ![Imgur](https://i.imgur.com/mr90Znr.png)
+:::success
+
 
 **Concepts / Terminologies introduced** : [xml](https://courses.codepath.org/courses/mobile_app_design/pages/android/glossary/lab_1_glossary.md#heading-xml), [RelativeLayout / ConstraintLayout](https://courses.codepath.org/courses/mobile_app_design/pages/android/glossary/lab_1_glossary.md#heading-relativelayout-and-constraintlayout), [Android's Views](https://courses.codepath.org/courses/mobile_app_design/pages/android/glossary/lab_1_glossary.md#heading-view), [Android's TextView](https://courses.codepath.org/courses/mobile_app_design/pages/android/glossary/lab_1_glossary.md#heading-textview), [dp vs sp](https://courses.codepath.org/courses/mobile_app_design/pages/android/glossary/lab_1_glossary.md#heading-dp--sp), [id](https://courses.codepath.org/courses/mobile_app_design/pages/android/glossary/lab_1_glossary.md#heading-id), [match_parent](https://courses.codepath.org/courses/mobile_app_design/pages/android/glossary/lab_1_glossary.md#heading-match_parent)
-
+:::
+    
 Recall that `activity_main.xml` is the layout file where we can add, position, and style different views and that `TextView` is a specific type of view used in Android layouts to display text, much like how `Button` and `ImageView` are other specific types of Android views.  
 
+:::warning
 **If you are not able to see a preview of your layout, [click here to go to the troubleshooting page](https://courses.codepath.org/courses/mobile_app_design/pages/android/pages/troubleshooting/hints_2.md#heading-fixing-layout-preview-not-showing)**
-
+:::
 - For this step, we'll be working with the `activity_main.xml` file. Since this was autogenerated,  we need to modify it a bit.
   - The root view in `activity_main.xml` is currently `ConstraintLayout`. Change it to be `RelativeLayout` instead
   - Delete the autogenerated "Hello World!" `TextView`
 - Add our own `TextView` and customize it with the appropriate dimension and text
-  - give the `TextView` a more appropriate id name such as `flashcard_question` to help us identify it later
-  - adjust the `TextView`'s dimensions so that it takes up the whole width of the screen (`match_parent`) and has a height of `200dp`
-  - populate the `TextView` with text so that it displays a question
-  - make the text more readable by increasing the font size to `40sp`
-  - center the text
-- run your app to make sure you can see the question displayed
+  - Give the `TextView` a more appropriate id name such as `flashcard_question` to help us identify it later
+  - Adjust the `TextView`'s dimensions so that it takes up the whole width of the screen (`match_parent`) and has a height of `200dp`
+  - Populate the `TextView` with text so that it displays a question
+  - Make the text more readable by increasing the font size to `40sp`
+  - Center the text
+- Run your app to make sure you can see the question displayed
 
 ^^^
 ***Click here for a detailed guide on how to add this custom text view.***
@@ -104,8 +122,12 @@ Recall that `activity_main.xml` is the layout file where we can add, position, a
 
 <img src="https://i.imgur.com/3KAKR6j.gif" width="1000"/>  
 
+:::info
 The other way to do this is to use the file navigator shortcut (`Ctrl + Shift + N` on Windows or `Command + Shift + O` on Mac) and start typing in the file name.  
+:::
 
+
+    
 - Edit our layout file `activity_main.xml` to be a `RelativeLayout` instead
   - Our auto-generated layout is a `ConstraintLayout` right now. Let's change it to `RelativeLayout` for our purposes by changing any text that says `ConstraintLayout` to `RelativeLayout`. We should also take out the prepopulated TextView that says "Hello World!"
 
@@ -179,10 +201,15 @@ The other way to do this is to use the file navigator shortcut (`Ctrl + Shift + 
 ```  
 
 ^^^
+</details>
 
+<details>
+<summary style="font-size:1.25em; font-weight: 600">
+3. Add a view for the back side of the flashcard to display the answer
+</summary>
 
-#### 3. Add a view for the back side of the flashcard to display the answer
-
+ <br>
+    
 ![Imgur](https://i.imgur.com/eFr2fef.png)
 
 - Similar to how we created the `TextView` for the question in the previous step, add another `TextView` to the layout and populate the text with the answer to the question.
@@ -236,17 +263,24 @@ In order to fix this error, we should change the id of the new TextView we added
 ```
 
 ^^^
+</details>
 
-#### 4. Build in logic to show the answer side when the card is tapped
+<details>
+<summary style="font-size:1.25em; font-weight: 600">
+4. Build in logic to show the answer side when the card is tapped  
+</summary>
 
+:::success
 **Concepts / Terminologies introduced** : [Listeners](https://courses.codepath.org/courses/mobile_app_design/pages/android/glossary/lab_1_glossary.md#heading-listener)
+:::
+
 
 <img src="https://i.imgur.com/GX3Yfii.gif" width="200"/>
 
 Recall that certain Listeners in Android allow us to handle user interactions within our app. `OnClickListener` is the most commonly used type of Listener that allows us to know when the user does a single tap in our app. When the user taps on a view  if the view has an attached `OnClickListener`, the `OnClickListener` will be called and the code within the `OnClickListener` will be executed.
 
-- since we don't want to show the question and the answer at the same time anymore, now we should move the answer text view to be at the same location as the question text view
-- set the visibility of the answer text view to be invisible so it doesn't block the question text
+-Since we don't want to show the question and the answer at the same time anymore, now we should move the answer text view to be at the same location as the question text view
+- Set the visibility of the answer text view to be invisible so it doesn't block the question text
 - set an onClickListener for the question text view that will hide the question text view and show the answer text view
 - run your app to test that when you click on the question, the answer text appears
 
@@ -305,16 +339,26 @@ public class MainActivity extends AppCompatActivity {
 ```
 
 ^^^
+</details>
 
-#### 5. Push code to Github
+<details>
+<summary style="font-size:1.25em; font-weight: 600">
+5. 🎉Push code to Github
+
+</summary>
+
+
 
 **Concepts / Terminologies introduced** : [Github](https://courses.codepath.org/courses/mobile_app_design/pages/android/glossary/lab_1_glossary.md#heading-github)
 
 Now that we have the first version of our app implemented, we should push our project to Github to save our progress.
 
 - Create a new repository on Github and push your project
-
+    
+:::info
   For a more detailed guide on using Github within Android Studio, take a look at this [Github  how to guide](https://courses.codepath.org/courses/mobile_app_design/pages/android/github_how_to.md).
+:::
+
 
 ## Submitting Your Lab Project
 
@@ -328,21 +372,36 @@ Once you have finished all the required tasks and pushed your code to GitHub you
   :::info
   Checkout the **[Submitting Mobile Labs Guide](/courses/mobile_app_design/pages/submitting_coursework#heading-mobile-coding-lab-submissions)** for detailed instructions on submitting your lab. You can reference this **[Example README](https://gist.github.com/calren/1e2b05bb74cf9867a4212def64a810fc)** to see what a completed README should look like.
   :::
+</details>
 
-### Optional Tasks
 
-#### 1. Build in logic to toggle the flashcard between the question side and the answer side
+## Optional Tasks
+
+<details>
+<summary style="font-size:1.25em; font-weight: 600">
+1. Build in logic to toggle the flashcard between the question side and the answer side
+</summary>
 
 <img src="https://i.imgur.com/F9bUfzG.gif" width="200" />
 
 - Similar to how we added an onClickListener to the `flashcard_question` view, we can add another onClickListener to `flashcard_answer` to achieve the toggling effect
 - The onClickListener for `flashcard_answer` should handle setting the visibility for `flashcard_question` and `flashcard_answer`
 
-  ** `OnClickListener`'s need to be correctly attached to the view that wants to listen for user actions and this can be tricky when there are multiple views that have different listeners. Ask your breakout room members for help debugging if you weren't able to achieve the toggling effect.
+:::info
+`OnClickListener`'s need to be correctly attached to the view that wants to listen for user actions and this can be tricky when there are multiple views that have different listeners. Ask your breakout room members for help debugging if you weren't able to achieve the toggling effect.
+:::
+    
+  
+</details>
+<details>
+<summary style="font-size:1.25em; font-weight: 600">
+2. Style the question and answer side of the card to better distinguish between the two sides    
+</summary>
 
-#### 2. Style the question and answer side of the card to better distinguish between the two sides
 
 <img src="https://i.imgur.com/ezgXEJX.gif" width="200" />
+
+<br>
 
 - Add a background color and text color for the question card view
 - Add a different background color and different text color for the answer card view
@@ -350,21 +409,27 @@ Once you have finished all the required tasks and pushed your code to GitHub you
 ^^^
 ***Click here for detailed instructions on customizing background and text colors.***
 ^^^
+    
 - Adding and customizing colors for views is typically done in the XML layout file. Each view in the XML can have a `android:background` property. For example, if we added the following line to a TextView `android:background="#000000"`, the background of the TextView would be set to black because `#000000` is the hex code for the color black.  
 
 - Similarly, the text color in a TextView can be set with the `android:textColor` property. For example, if we wanted to set a text to be white, we would add the following line to the TextView `android:textColor="#ffffff"`
 
 ^^^
+</details>
 
-#### 3. Further customize and style the card
+<details>
+<summary style="font-size:1.25em; font-weight: 600">
+3. Further customize and style the card    
+</summary>
+
 
 <img src="https://i.imgur.com/T92I0EY.png" width="200" />
 
 - Create a custom [Shape Drawable](https://guides.codepath.org/android/drawables#drawing-shapes) to give the card:
 
-  - rounded corners
-  - colored border
-  - custom background color
+  - Rounded corners
+  - Colored border
+  - Custom background color
 
 - Give the card a [shadow/elevation](https://developer.android.com/training/material/shadows-clipping#shadows) effect
 
@@ -401,18 +466,35 @@ Once you have finished all the required tasks and pushed your code to GitHub you
 - We can also add a elevation attribute to `flashcard_question` to give it the shadow effect.
   - `android:elevation="5dp"` . The larger the number, the more shadow will appear.
 ^^^
+</details>
 
-#### 4. Add selectable multiple choice answers beneath the card
+<details>
+<summary style="font-size:1.25em; font-weight: 600">
+4. Add selectable multiple choice answers beneath the card
+</summary>
+
 
 <img src="https://i.imgur.com/NQW7uON.png" width="200" height="400" />
 
 - Add 3 additional `TextView`'s under the question/answer card. We should use properties of the `RelativeLayout` to achieve this.
+    
+:::info
+For more detailed instructions on working with RelativeLayouts, check out this [guide on constructing relative layouts](https://guides.codepath.org/android/Constructing-View-Layouts#relativelayout).
+:::
+  
+</details>
 
-  For more detailed instructions on working with RelativeLayouts, check out this [guide on constructing relative layouts](https://guides.codepath.org/android/Constructing-View-Layouts#relativelayout).
+<details>
+<summary style="font-size:1.25em; font-weight: 600">
+5. Change the background color of the multiple choice answers when clicked to indicate whether the question was answered correctly
+</summary>
 
-#### 5. Change the background color of the multiple choice answers when clicked to indicate whether the question was answered correctly
 
-Note: The GIF above is looping through 3 different scenarios. You don't have to build any type of 'reset' logic.
+#### 
+:::warning
+Note: The GIF above is looping through 3 different scenarios. You don't have to build any type of 'reset' logic
+:::
+.
 <img src="https://i.imgur.com/k5CKb4N.gif" width="200"/>
 
 - Add onClickListeners to each of the 3 additional `TextView`s we previously added and put in logic to change the background colors for the different TextViews accordingly
@@ -428,12 +510,19 @@ findViewById(R.id.myView).setBackgroundColor(getResources().getColor(R.color.my_
 
 We would have to define `R.color.black` in `colors.xml`. If we navigate to the `colors.xml` file in `src/main/res/values/colors.xml`, we can see that there are already 3 colors defined. In this file we can define any additional colors we want. For example, if we wanted to add a red color , we can do so by adding the line `<color name="my_red_color">#ee0000</color>`
 ^^^
+    
+</details>
+<details>
+<summary style="font-size:1.25em; font-weight: 600">
+6. Add a button that will toggle hiding and showing the answer choices 
+</summary>
 
-#### 6. Add a button that will toggle hiding and showing the answer choices
 
 <img src="https://i.imgur.com/qP9FLRg.gif" width="200" />
-
+:::warning
 Note : Notice that whenever the 'eye' icon is clicked, it also switches state based on whether the answer choices are showing or not. When the answers are showing, the 'eye' icon has a diagonal line through it to indicate that clicking on it will hide answers. When the answers are not showing, the 'eye' icon indicates that clicking on it will show answers.
+:::
+
 
 ^^^
 ***Click here for more info on how to add icons and change them dynamically***
@@ -468,8 +557,9 @@ Note : Notice that whenever the 'eye' icon is clicked, it also switches state ba
 
 - Since we need to know whether to show or hide the answer choices and also which icon we should be displaying when the icon is clicked, we should keep a `boolean isShowingAnswers` in our MainActivity.java that gets toggled whenever the icon is clicked.
 ^^^
+</details>
 
-### Re-submitting Your Lab Project After Completing Optional Features
+### 🥳Re-submitting Your Lab Project After Completing Optional Features🚀
 
 Anytime you complete more optional features for your app, you'll need to update your submission and re-submit.
 
@@ -483,5 +573,7 @@ Checkout the **[Submitting Mobile Labs Guide](/courses/mobile_app_design/pages/s
 :::
 
 ## Concept Review
-
+:::success
 For a review of the topics we covered this week and addtional in-depth guides on these topics, feel free to browse the extra reading material [here](https://courses.codepath.org/courses/mobile_app_design/pages/android/links/unit_2.md)
+
+:::
